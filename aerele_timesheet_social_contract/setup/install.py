@@ -37,6 +37,12 @@ SALARY_COMPONENTS = (
 )
 
 
+def before_install():
+	# The settings single has Link defaults to these components, and Frappe saves
+	# singles (init_singles) before after_install runs, so they must exist first.
+	make_salary_components()
+
+
 def after_install():
 	setup()
 	from aerele_timesheet_social_contract.patches.backfill_timesheet_submission_times import execute

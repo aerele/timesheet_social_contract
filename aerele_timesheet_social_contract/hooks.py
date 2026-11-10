@@ -12,6 +12,7 @@ required_apps = ["erpnext", "hrms"]
 # Installation
 # ------------
 
+before_install = "aerele_timesheet_social_contract.setup.install.before_install"
 after_install = "aerele_timesheet_social_contract.setup.install.after_install"
 before_uninstall = "aerele_timesheet_social_contract.setup.install.before_uninstall"
 
