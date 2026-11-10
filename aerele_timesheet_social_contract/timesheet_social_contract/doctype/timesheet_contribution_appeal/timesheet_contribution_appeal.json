@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "autoname": "format:TSCAP-{YY}{MM}-{####}",
+ "creation": "2026-11-10 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "audit",
+  "employee",
+  "employee_name",
+  "column_break_head",
+  "week_start",
+  "contribution",
+  "raised_on",
+  "section_reason",
+  "reason",
+  "evidence",
+  "section_panel",
+  "votes",
+  "decision",
+  "decision_remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "audit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Audit",
+   "options": "Timesheet Compliance Audit",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "audit.employee",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "audit.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "audit.week_start",
+   "fieldname": "week_start",
+   "fieldtype": "Date",
+   "label": "Week Start",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "audit.contribution",
+   "fieldname": "contribution",
+   "fieldtype": "Currency",
+   "label": "Contribution",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "raised_on",
+   "fieldtype": "Date",
+   "label": "Raised On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_reason",
+   "fieldtype": "Section Break",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text Editor",
+   "label": "Reasons",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Attach",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "section_panel",
+   "fieldtype": "Section Break",
+   "label": "Panel Decision",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "votes",
+   "fieldtype": "Table",
+   "label": "Votes",
+   "options": "Timesheet Appeal Vote",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Decision",
+   "options": "\nAccepted\nRejected",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "decision_remarks",
+   "fieldtype": "Small Text",
+   "label": "Decision Remarks",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Timesheet Contribution Appeal",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-11-10 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Timesheet Social Contract",
+ "name": "Timesheet Contribution Appeal",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Timesheet Panel",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 0,
+   "export": 0,
+   "permlevel": 1,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "email": 0,
+   "export": 0,
+   "permlevel": 1,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Timesheet Panel",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "email": 0,
+   "export": 0,
+   "permlevel": 1,
+   "print": 0,
+   "read": 1,
+   "report": 0,
+   "role": "Employee",
+   "share": 0
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}

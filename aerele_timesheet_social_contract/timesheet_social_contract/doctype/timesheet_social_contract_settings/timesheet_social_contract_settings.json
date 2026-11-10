@@ -1,0 +1,260 @@
+{
+ "actions": [],
+ "creation": "2026-11-10 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "effective_from",
+  "company",
+  "column_break_gen",
+  "auto_submit_audit",
+  "submit_additional_salary",
+  "section_contribution",
+  "base_amount",
+  "per_day_factor",
+  "full_week_factor",
+  "column_break_contrib",
+  "monthly_cap",
+  "deduction_component",
+  "refund_component",
+  "section_deadline",
+  "grace_days",
+  "deadline_time",
+  "deadline_time_zone",
+  "column_break_deadline",
+  "month_end_same_day",
+  "minimum_hours_per_day",
+  "section_panel",
+  "votes_required",
+  "appeal_window_days",
+  "section_exclusions",
+  "excluded_employees"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "When off, the Sunday audit does not run.",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "default": "2026-11-01",
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Submit audits (and create Additional Salary) automatically. Off: audits stay in draft for the panel to review.",
+   "fieldname": "auto_submit_audit",
+   "fieldtype": "Check",
+   "label": "Auto Submit Audits"
+  },
+  {
+   "default": "1",
+   "description": "Off: Additional Salary is created in draft.",
+   "fieldname": "submit_additional_salary",
+   "fieldtype": "Check",
+   "label": "Submit Additional Salary"
+  },
+  {
+   "fieldname": "section_contribution",
+   "fieldtype": "Section Break",
+   "label": "Contribution"
+  },
+  {
+   "default": "5000",
+   "fieldname": "base_amount",
+   "fieldtype": "Currency",
+   "label": "Base Amount",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0.15",
+   "description": "Each non-compliant working day = Base Amount x this factor.",
+   "fieldname": "per_day_factor",
+   "fieldtype": "Float",
+   "label": "Per Non-Compliant Day Factor",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "description": "When none of the week's working days are compliant = Base Amount x this factor.",
+   "fieldname": "full_week_factor",
+   "fieldtype": "Float",
+   "label": "Full Week Factor",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_contrib",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "20000",
+   "description": "Maximum total per employee per calendar month (by payroll date). 0 = no cap.",
+   "fieldname": "monthly_cap",
+   "fieldtype": "Currency",
+   "label": "Monthly Cap",
+   "non_negative": 1
+  },
+  {
+   "default": "Social Contract Contribution",
+   "fieldname": "deduction_component",
+   "fieldtype": "Link",
+   "label": "Deduction Component",
+   "options": "Salary Component",
+   "reqd": 1
+  },
+  {
+   "default": "Social Contract Refund",
+   "description": "Earning component used to refund a contribution that was already paid out in a salary slip.",
+   "fieldname": "refund_component",
+   "fieldtype": "Link",
+   "label": "Refund Component",
+   "options": "Salary Component",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_deadline",
+   "fieldtype": "Section Break",
+   "label": "Deadlines"
+  },
+  {
+   "default": "1",
+   "description": "Calendar days after the work date by which the timesheet must be submitted. 1 = next day.",
+   "fieldname": "grace_days",
+   "fieldtype": "Int",
+   "label": "Grace Days",
+   "non_negative": 1
+  },
+  {
+   "default": "23:59:59",
+   "fieldname": "deadline_time",
+   "fieldtype": "Time",
+   "label": "Deadline Time",
+   "reqd": 1
+  },
+  {
+   "default": "Asia/Kolkata",
+   "fieldname": "deadline_time_zone",
+   "fieldtype": "Autocomplete",
+   "label": "Deadline Time Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_deadline",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "From the last working day of the month onwards, the deadline is the same day.",
+   "fieldname": "month_end_same_day",
+   "fieldtype": "Check",
+   "label": "Month End Same Day"
+  },
+  {
+   "default": "0",
+   "description": "Submitted on-time hours needed for a day to count as complete. 0 = any submitted entry is enough.",
+   "fieldname": "minimum_hours_per_day",
+   "fieldtype": "Float",
+   "label": "Minimum Hours per Day",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_panel",
+   "fieldtype": "Section Break",
+   "label": "Panel"
+  },
+  {
+   "default": "2",
+   "fieldname": "votes_required",
+   "fieldtype": "Int",
+   "label": "Votes Required for a Decision",
+   "reqd": 1
+  },
+  {
+   "default": "7",
+   "description": "Days after the audit date within which an appeal can be raised.",
+   "fieldname": "appeal_window_days",
+   "fieldtype": "Int",
+   "label": "Appeal Window (Days)",
+   "non_negative": 1
+  },
+  {
+   "description": "Decided by the panel: product team, directors, admin staff and finance controllers as needed.",
+   "fieldname": "section_exclusions",
+   "fieldtype": "Section Break",
+   "label": "Excluded Employees"
+  },
+  {
+   "fieldname": "excluded_employees",
+   "fieldtype": "Table",
+   "label": "Excluded Employees",
+   "options": "Timesheet Social Contract Exclusion"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-10 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Timesheet Social Contract",
+ "name": "Timesheet Social Contract Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Timesheet Panel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

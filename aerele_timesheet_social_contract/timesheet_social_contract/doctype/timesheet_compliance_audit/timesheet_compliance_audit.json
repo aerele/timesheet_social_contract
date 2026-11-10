@@ -1,0 +1,243 @@
+{
+ "actions": [],
+ "autoname": "format:TSCA-{YY}{MM}-{#####}",
+ "creation": "2026-11-10 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "company",
+  "column_break_head",
+  "week_start",
+  "week_end",
+  "posting_date",
+  "section_result",
+  "working_days",
+  "compliant_days",
+  "non_compliant_days",
+  "column_break_result",
+  "calculated_contribution",
+  "contribution",
+  "cap_note",
+  "section_days",
+  "days",
+  "section_salary",
+  "additional_salary",
+  "refund_additional_salary",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_head",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "week_start",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Week Start (Monday)",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "week_end",
+   "fieldtype": "Date",
+   "label": "Week End (Sunday)",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Audit Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_result",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "working_days",
+   "fieldtype": "Int",
+   "label": "Working Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliant_days",
+   "fieldtype": "Int",
+   "label": "Compliant Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "non_compliant_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Non-Compliant Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_result",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "calculated_contribution",
+   "fieldtype": "Currency",
+   "label": "Calculated Contribution",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "description": "After the monthly cap.",
+   "fieldname": "contribution",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Contribution",
+   "read_only": 1
+  },
+  {
+   "depends_on": "cap_note",
+   "fieldname": "cap_note",
+   "fieldtype": "Small Text",
+   "label": "Cap Note",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_days",
+   "fieldtype": "Section Break",
+   "label": "Days"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Table",
+   "label": "Days",
+   "options": "Timesheet Compliance Audit Day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_salary",
+   "fieldtype": "Section Break",
+   "label": "Payroll"
+  },
+  {
+   "fieldname": "additional_salary",
+   "fieldtype": "Link",
+   "label": "Additional Salary",
+   "no_copy": 1,
+   "options": "Additional Salary",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "refund_additional_salary",
+   "fieldtype": "Link",
+   "label": "Refund Additional Salary",
+   "no_copy": 1,
+   "options": "Additional Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Timesheet Compliance Audit",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-11-10 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Timesheet Social Contract",
+ "name": "Timesheet Compliance Audit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Timesheet Panel",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1
+  },
+  {
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 0
+  }
+ ],
+ "search_fields": "employee_name,week_start",
+ "show_title_field_in_link": 0,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "employee_name",
+ "track_changes": 1
+}
