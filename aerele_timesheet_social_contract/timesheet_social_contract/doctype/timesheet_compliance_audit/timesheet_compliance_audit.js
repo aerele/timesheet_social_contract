@@ -17,9 +17,7 @@ frappe.ui.form.on("Timesheet Compliance Audit", {
 
 		if (frm.doc.docstatus === 1 && frm.doc.refund_additional_salary) {
 			frm.dashboard.set_headline(
-				__("Contribution refunded through {0}.", [
-					frm.doc.refund_additional_salary.bold(),
-				]),
+				__("Contribution refunded through {0}.", [frm.doc.refund_additional_salary.bold()])
 			);
 		}
 	},

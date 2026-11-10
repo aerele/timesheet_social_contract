@@ -18,7 +18,7 @@ frappe.ui.form.on("Timesheet Social Contract Settings", {
 	refresh(frm) {
 		if (!frm.doc.enabled) {
 			frm.dashboard.set_headline(
-				__("The weekly audit is off. Enable it to run every Sunday."),
+				__("The weekly audit is off. Enable it to run every Sunday.")
 			);
 		}
 
@@ -31,7 +31,7 @@ frappe.ui.form.on("Timesheet Social Contract Settings", {
 						label: __("Week Start (Monday)"),
 						reqd: 1,
 						description: __(
-							"Leave the latest finished week to audit everyone who has no audit yet.",
+							"Leave the latest finished week to audit everyone who has no audit yet."
 						),
 					},
 				],
@@ -45,7 +45,7 @@ frappe.ui.form.on("Timesheet Social Contract Settings", {
 						.then((r) => frappe.msgprint(r.message));
 				},
 				__("Run Audit"),
-				__("Run"),
+				__("Run")
 			);
 		});
 	},

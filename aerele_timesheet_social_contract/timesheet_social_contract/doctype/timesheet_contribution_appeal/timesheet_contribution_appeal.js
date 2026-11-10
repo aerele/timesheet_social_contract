@@ -12,7 +12,9 @@ frappe.ui.form.on("Timesheet Contribution Appeal", {
 		if (frm.doc.decision) {
 			const color = frm.doc.decision === "Accepted" ? "green" : "red";
 			frm.dashboard.set_headline_alert(
-				`<div class="indicator ${color}">${__("Panel decision: {0}", [__(frm.doc.decision)])}</div>`,
+				`<div class="indicator ${color}">${__("Panel decision: {0}", [
+					__(frm.doc.decision),
+				])}</div>`
 			);
 		}
 	},
