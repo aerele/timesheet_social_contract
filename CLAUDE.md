@@ -7,17 +7,17 @@ Based on the Aerele Frappe CLAUDE.md template: https://aerele.in/frappe-claude-m
 - Frappe 16.54, ERPNext 16.52.1, HRMS 16.52 (as on insider.frappe.cloud). Use only APIs that exist in these versions.
 - Python 3.14, Node 24.
 - App: `aerele_timesheet_social_contract`, module `Timesheet Social Contract`.
-- Bench: `~/Documents/frappe` (local develop bench).
-- Sites: dev `{{DEV_SITE}}`, test `{{TEST_SITE}}`, production `insider.frappe.cloud`.
+- Bench: `~/Documents/frappe/16-bench` (local develop bench; activate `../16_env`).
+- Sites: dev `v16-dev`, test `v16-test`, production `insider.frappe.cloud`.
 
 ## Commands
 
 Always pass `--site`.
 
 ```bash
-bench --site {{DEV_SITE}} migrate
+bench --site v16-dev migrate
 bench build --app aerele_timesheet_social_contract
-bench --site {{TEST_SITE}} run-tests --app aerele_timesheet_social_contract
+bench --site v16-test run-tests --app aerele_timesheet_social_contract
 pre-commit run --all-files
 ```
 
