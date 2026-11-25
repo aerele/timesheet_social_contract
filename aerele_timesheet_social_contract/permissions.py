@@ -36,11 +36,13 @@ def appeal_query_conditions(user: str | None = None) -> str:
 	return get_permission_query_conditions(user, "Timesheet Contribution Appeal")
 
 
-def has_permission(doc, ptype: str | None = None, user: str | None = None) -> bool | None:
+def has_permission(doc, ptype: str | None = None, user: str | None = None) -> bool:
+	"""Deny-only gate. Frappe treats any falsy return (None included) as a denial, so return True
+	to leave the decision to role permissions."""
 	user = user or frappe.session.user
 	if _is_privileged(user):
-		return None
+		return True
 	if not doc.get("employee"):
 		# A new appeal has no employee until its audit is set; the audit link is checked on save.
-		return None if doc.is_new() else False
+		return doc.is_new()
 	return doc.employee in _own_employees(user)
